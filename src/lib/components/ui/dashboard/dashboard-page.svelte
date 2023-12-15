@@ -27,11 +27,11 @@
 <div class="hidden flex-col md:flex">
 	<div class="border-b">
 		<div class="flex h-16 items-center px-4">
-			<TeamSwitcher />
+			<!-- <TeamSwitcher /> -->
 			<DashboardMainNav class="mx-6" />
 			<div class="ml-auto flex items-center space-x-4">
 				<DarkToggler />
-				<Search />
+				<!-- <Search /> -->
 				<UserNav />
 			</div>
 		</div>
@@ -40,11 +40,11 @@
 		<div class="flex items-center justify-between space-y-2">
 			<h2 class="text-3xl font-bold tracking-tight">Dashboard</h2>
 			<div class="flex items-center space-x-2">
-				<DatePickerWithRange />
-				<Button size="sm">
+				<!-- <DatePickerWithRange /> -->
+				<!-- <Button size="sm">
 					<Download class="mr-2 h-4 w-4" />
 					Download
-				</Button>
+				</Button> -->
 			</div>
 		</div>
 		<Tabs.Root value="overview" class="space-y-4">

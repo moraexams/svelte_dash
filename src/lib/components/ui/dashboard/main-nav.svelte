@@ -11,21 +11,21 @@
 	</a>
 
 	<a
-		href="/about"
+		href="/marks"
 		class="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
 	>
-		Manage Marks
+		Marks
 	</a>
 	<a
-		href="/view"
-		class="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-	>
-		View Marks
-	</a>
-	<a
-		href="/examples/dashboard"
+		href="/students"
 		class="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
 	>
 		Students
 	</a>
+	<!-- <a
+		href="/examples/dashboard"
+		class="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+	>
+		Students
+	</a> -->
 </nav>

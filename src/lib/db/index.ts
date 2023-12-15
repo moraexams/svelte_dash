@@ -20,6 +20,6 @@ export const db = drizzle(client, { schema });
 // 	where: eq(schema.applicants.nic, nic_no)
 // });
 
-const result = await db.select().from(schema.applicants);
+const result = await db.select().from(schema.student_tbl);
 
 // console.log(result);
