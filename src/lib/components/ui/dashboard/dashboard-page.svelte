@@ -6,6 +6,11 @@
 	import * as Tabs from '$lib/components/ui/tabs';
 	import { DashboardMainNav, Overview, RecentSales, Search, UserNav, TeamSwitcher } from '.';
 	import DatePickerWithRange from './date-picker-with-range.svelte';
+
+	import * as Table from '$lib/components/ui/table';
+	import { db } from '$lib/db';
+	import * as schema from '$lib/db/shema';
+	import { get_table } from '$lib/utils';
 </script>
 
 <div class="md:hidden">
@@ -50,7 +55,7 @@
 		<Tabs.Root value="overview" class="space-y-4">
 			<Tabs.List>
 				<Tabs.Trigger value="overview">Overview</Tabs.Trigger>
-				<Tabs.Trigger value="analytics" disabled>Analytics</Tabs.Trigger>
+				<Tabs.Trigger value="viewMarks">View marks</Tabs.Trigger>
 				<Tabs.Trigger value="reports" disabled>Reports</Tabs.Trigger>
 				<Tabs.Trigger value="notifications" disabled>Notifications</Tabs.Trigger>
 			</Tabs.List>
@@ -115,6 +120,42 @@
 							<RecentSales />
 						</Card.Content>
 					</Card.Root>
+				</div>
+			</Tabs.Content>
+			<Tabs.Content value="viewMarks" class="space-y-4">
+				<div class="w-auto m-auto">
+					{#await get_table()}
+						<p>fetching</p>
+					{:then result}
+						<Table.Root class="w-auto m-auto">
+							<!-- <Table.Caption>A list of your recent invoices.</Table.Caption> -->
+							<Table.Header>
+								<Table.Row>
+									<Table.Head class="w-[100px]">Index No</Table.Head>
+									<Table.Head>Name</Table.Head>
+									<Table.Head>E Mail</Table.Head>
+									<Table.Head class="text-right">NIC</Table.Head>
+								</Table.Row>
+							</Table.Header>
+							<Table.Body>
+								{#each result as res}
+									<!-- <p>{res.name}</p> -->
+									<Table.Row>
+										<Table.Cell class="font-medium">{res.id}</Table.Cell>
+										<Table.Cell>{res.name}</Table.Cell>
+										<Table.Cell>{res.email}</Table.Cell>
+										<Table.Cell>{res.nic}</Table.Cell>
+										<!-- <Table.Cell class="text-right">{res.nic}</Table.Cell> -->
+									</Table.Row>
+								{/each}
+							</Table.Body>
+						</Table.Root>
+					{:catch error}
+						<p>Something went wrong</p>
+					{/await}
+					<!-- {#each result as res, i (i)}
+				
+				{/each} -->
 				</div>
 			</Tabs.Content>
 		</Tabs.Root>

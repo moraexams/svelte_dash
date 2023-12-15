@@ -2,6 +2,8 @@ import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { cubicOut } from "svelte/easing";
 import type { TransitionConfig } from "svelte/transition";
+import { db } from './db';
+	import * as schema from './db/shema';
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
@@ -59,4 +61,12 @@ export const flyAndScale = (
         },
         easing: cubicOut
     };
+};
+
+
+export const get_table = async () => {
+    const result = await db.select().from(schema.applicants);
+    // const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1000');
+    // const data = await result.json();
+    return result;
 };
