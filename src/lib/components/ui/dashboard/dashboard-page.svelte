@@ -11,6 +11,29 @@
 	import { db } from '$lib/db';
 	import * as schema from '$lib/db/shema';
 	import { get_table } from '$lib/utils';
+
+	let offset = 0;
+
+	function incrementOffset() {
+		offset += 50;
+	}
+	function decrementOffset() {
+		if (offset < 50) {
+			offset = 0;
+		} else {
+			offset -= 50;
+		}
+	}
+	let limit = 50;
+	function limitset25() {
+		limit = 25;
+	}
+	function limitset50() {
+		limit = 50;
+	}
+	function limitset100() {
+		limit = 100;
+	}
 </script>
 
 <div class="md:hidden">
@@ -123,8 +146,16 @@
 				</div>
 			</Tabs.Content>
 			<Tabs.Content value="viewMarks" class="space-y-4">
+				<div style="text-align: center;">
+					<button on:click={decrementOffset}> Back </button>
+					<button on:click={incrementOffset}> Next </button>
+					<button on:click={limitset25}> 25 </button>
+					<button on:click={limitset50}> 50 </button>
+					<button on:click={limitset100}> 100 </button>
+				</div>
+
 				<div class="w-auto m-auto">
-					{#await get_table()}
+					{#await get_table(offset, limit)}
 						<p>fetching</p>
 					{:then result}
 						<Table.Root class="w-auto m-auto">

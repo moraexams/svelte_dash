@@ -64,8 +64,9 @@ export const flyAndScale = (
 };
 
 
-export const get_table = async () => {
-    const result = await db.select().from(schema.applicants);
+export const get_table = async (offset: number,limit:number) => {
+    const result = await db.query.applicants.findMany({
+        limit:limit,offset:offset})
     // const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1000');
     // const data = await result.json();
     return result;
