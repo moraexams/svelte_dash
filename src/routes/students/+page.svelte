@@ -2,6 +2,8 @@
 	import * as Table from '$lib/components/ui/table';
 	import { db } from '../../lib/db';
 	import * as schema from '../../lib/db/shema';
+	import { Terminal } from 'lucide-svelte';
+	import * as Alert from '$lib/components/ui/alert';
 
 	const get_table = async () => {
 		// const result = await db.select().from(schema.applicants);
@@ -35,13 +37,17 @@
 </script>
 
 <svelte:head>
-	<title>About</title>
-	<meta name="description" content="About this app" />
+	<title>Students</title>
+	<meta name="hello" content="All abouttttt" />
 </svelte:head>
 
 <div class="w-auto m-auto">
 	{#await get_table()}
-		<p>Fetching...</p>
+		<Alert.Root>
+			<Terminal class="h-4 w-4" />
+			<Alert.Title>Calculating...</Alert.Title>
+			<Alert.Description>Getting your stuff from a devine place...</Alert.Description>
+		</Alert.Root>
 	{:then result}
 		<Table.Root class="w-auto m-auto">
 			<!-- <Table.Caption>A list of your recent invoices.</Table.Caption> -->
