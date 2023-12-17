@@ -1,25 +1,9 @@
 <script>
 	import '../app.pcss';
 	import { ModeWatcher } from 'mode-watcher';
-
-	// import Header from './Header.svelte';
-	// import './styles.css';
 </script>
 
 <ModeWatcher />
-
-<!-- <Header></Header> -->
-
-<!-- <main> -->
-
-<slot />
-
-<!-- </main> -->
-
-<!-- <footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer> -->
-<!-- </div> -->
-
-<style>
-</style>
+<main>
+	<slot />
+</main>

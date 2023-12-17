@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as Table from '$lib/components/ui/table';
-	import { db } from '../../lib/db';
-	import * as schema from '../../lib/db/shema';
+	import { db } from '$lib/db';
+	import * as schema from '$lib/db/shema';
 	import { Terminal } from 'lucide-svelte';
 	import * as Alert from '$lib/components/ui/alert';
 

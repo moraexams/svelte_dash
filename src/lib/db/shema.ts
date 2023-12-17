@@ -1,5 +1,7 @@
 import { integer, sqliteTable, text, real } from 'drizzle-orm/sqlite-core';
 
+// ##### students table ######
+// ###########################
 export const student_tbl = sqliteTable('tbl_students', {
 	id: text('index_no', { length: 50, mode: 'text' }).notNull().primaryKey(),
 	name: text('name', { length: 255, mode: 'text' }),
@@ -24,6 +26,8 @@ export const student_tbl = sqliteTable('tbl_students', {
 	chk_dt: text('checked_datetime')
 });
 
+// ##### marks table ######
+// ###########################
 export const mark_tbl = sqliteTable('tbl_marks', {
 	id: text('index_no', { length: 50, mode: 'text' }).notNull().primaryKey(),
 	// sub_grp: text('subject_group_id', { length: 100, mode: 'text' }),
@@ -83,6 +87,34 @@ export const mod_mark_tbl = sqliteTable('tbl_marks', {
 	s3p2: real('medium')
 });
 
+// ##### subjects table ######
+// ###########################
+export const subjects_tbl = sqliteTable('subjects_tbl', {
+	subj_id: integer('subj_id').notNull().primaryKey(),
+	subj_name: text('subj_name', { length: 100, mode: 'text' }).notNull()
+});
+// 1 physics
+// 2 chemistry
+// 9 biology
+// 10 com maths
+// 20 ict
+// in other tbl null not entered
+// in other tbl 0 not taking
+
+// ##### streams table ######
+// ###########################
+export const streams_tbl = sqliteTable('streams_tbl', {
+	stream_id: integer('stream_id').notNull().primaryKey(),
+	stream_name: text('stream_name', { length: 100, mode: 'text' }).notNull()
+});
+// in other tbl null not entered
+// in other tbl 0 not a stream
+// 1 biological science stream
+// 2 physical science stream
+// 3 maths ict stream
+// 4 bio chem ict stream
+// 5 bio phy ict stream
+
 export const result_tbl = sqliteTable('tbl_results', {
 	id: text('index_no', { length: 50, mode: 'text' }).notNull().primaryKey(),
 	name: text('name', { length: 100, mode: 'text' }),
@@ -98,6 +130,5 @@ export const result_tbl = sqliteTable('tbl_results', {
 // rnk_dist_tbl
 // exm_dist_tbl
 // exm_cent_tbl
-// sub_grp_tbl
 // school_tbl
 // user_tbl

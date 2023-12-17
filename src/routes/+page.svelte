@@ -3,4 +3,5 @@
 	import { DashboardPage } from '$lib/components/ui/dashboard';
 </script>
 
+<!-- todo: auth logic to render dashboard or to redirect to auth -->
 <DashboardPage />
