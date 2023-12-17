@@ -1,18 +1,23 @@
 <script lang="ts">
 	import * as Table from '$lib/components/ui/table';
-	import { db } from '../../lib/db';
-	import * as schema from '../../lib/db/shema';
+	// import { db } from '../../lib/db';
+	// import * as schema from '../../lib/db/shema';
 	import { Terminal } from 'lucide-svelte';
 	import * as Alert from '$lib/components/ui/alert';
+	import type { PageData } from './$types';
 
-	const get_table = async () => {
-		// const result = await db.select().from(schema.applicants);
-		const result = await db.query.student_tbl.findMany({
-			limit: 10,
-			offset: 0
-		});
-		return result;
-	};
+	export let data: PageData;
+	// console.log(data);
+
+	// const get_table = async () => {
+	// 	// const result = await db.select().from(schema.applicants);
+	// 	const result = await db.query.student_tbl.findMany({
+	// 		limit: 10,
+	// 		offset: 0
+	// 	});
+	// 	return result;
+	// };
+
 	const headers = [
 		'Index No',
 		'Name',
@@ -42,7 +47,7 @@
 </svelte:head>
 
 <div class="w-auto m-auto">
-	{#await get_table()}
+	{#await data.student_tbl.slice(0, 10)}
 		<Alert.Root>
 			<Terminal class="h-4 w-4" />
 			<Alert.Title>Calculating...</Alert.Title>

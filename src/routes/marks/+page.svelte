@@ -1,17 +1,8 @@
 <script lang="ts">
 	import * as Table from '$lib/components/ui/table';
-	import { db } from '../../lib/db';
-	import * as schema from '../../lib/db/shema';
 	import { Terminal } from 'lucide-svelte';
 	import * as Alert from '$lib/components/ui/alert';
 
-	const get_table = async () => {
-		const result = await db.query.mark_tbl.findMany({
-			limit: 50,
-			offset: 0
-		});
-		return result;
-	};
 	const headers = [
 		'Index No',
 		'Subject1 P1',
@@ -51,7 +42,7 @@
 	<meta name="description" content="About this app" />
 </svelte:head>
 
-<div class="w-auto m-auto">
+<!-- <div class="w-auto m-auto">
 	{#await get_table()}
 		<Alert.Root>
 			<Terminal class="h-4 w-4" />
@@ -60,10 +51,8 @@
 		</Alert.Root>
 	{:then result}
 		<Table.Root class="w-auto m-auto">
-			<!-- <Table.Caption>A list of your recent invoices.</Table.Caption> -->
 			<Table.Header>
 				<Table.Row>
-					<!-- <Table.Head class="w-[100px]">Index No</Table.Head> -->
 					{#each headers as header}
 						<Table.Head>{header}</Table.Head>
 					{/each}
@@ -93,4 +82,4 @@
 	{:catch error}
 		<p>Something went wrong</p>
 	{/await}
-</div>
+</div> -->
