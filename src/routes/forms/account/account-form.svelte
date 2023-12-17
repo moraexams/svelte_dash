@@ -59,8 +59,7 @@
 		<Form.Field {config} name="language" let:attrs>
 			{@const { value } = attrs.input}
 			<Form.Label>Language</Form.Label>
-			<!-- <Form.Select selected={{ value, label: languages[value] }}> -->
-			<Form.Select>
+			<Form.Select selected={{ value, label: languages[value] }}>
 				<Form.SelectTrigger
 					placeholder="Select language"
 					class={cn('w-[200px] justify-between', !attrs.input.value && 'text-muted-foreground')}
