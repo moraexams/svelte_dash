@@ -26,7 +26,7 @@
 			offset -= 50;
 		}
 	}
-	let limit = 0;
+	let limit = 50;
 	function limitset25() {
 		limit = 25;
 	}
@@ -54,15 +54,21 @@
 		class="hidden dark:block"
 	/>
 </div>
+<div class="border-b">
+	<div class="flex h-16 items-center px-4">
+		<DashboardMainNav class="mx-6" />
+		<div class="ml-auto flex items-center space-x-4">
+			<DarkToggler />
+
+			<UserNav />
+		</div>
+	</div>
+</div>
 <div class="hidden flex-col md:flex">
 	<div class="flex-1 space-y-4 p-8 pt-6">
 		<div class="flex items-center justify-between space-y-2">
 			<h2 class="text-3xl font-bold tracking-tight">Dashboard</h2>
-			<div class="flex items-center space-x-2">
-				<DarkToggler />
-				<SearchBar />
-				<SC />
-			</div>
+			<div class="flex items-center space-x-2"></div>
 		</div>
 		<Tabs.Root value="overview" class="space-y-4">
 			<Tabs.List>
