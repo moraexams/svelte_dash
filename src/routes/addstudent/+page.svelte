@@ -73,7 +73,7 @@
 	let:config
 	schema={accountFormSchema}
 	form={data}
-	debug={false}
+	debug={true}
 >
 	<div class="text-center text-4xl mt-10">Add Student</div>
 	<div class="mx-[20%]">
@@ -278,7 +278,7 @@
 		</div>
 	</div>
 	<div class="text-center">
-		<Form.Button>Reset</Form.Button>
+		<Form.Button type="reset">Reset</Form.Button>
 		<Form.Button>Add student</Form.Button>
 	</div>
 </Form.Root>
