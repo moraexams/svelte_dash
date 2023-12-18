@@ -2,7 +2,7 @@
 	import { createFormField } from ".";
 	import type { Form, FormFieldName } from "./types";
 	import type { AnyZodObject } from "zod";
-	import { cn } from "@/utils";
+	import { cn } from "../../../utils";
 	let className: string | undefined | null = undefined;
 	export { className as class };
 

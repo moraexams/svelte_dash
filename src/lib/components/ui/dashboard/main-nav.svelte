@@ -21,7 +21,7 @@
 		Marks
 	</a>
 	<a
-		href="/forms"
+		href="/settings"
 		class="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
 	>
 		Settings
@@ -31,5 +31,11 @@
 		class="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
 	>
 		Auth
+	</a>
+	<a
+		href="/addstudent"
+		class="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+	>
+		Add students
 	</a>
 </nav>
