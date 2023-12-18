@@ -50,6 +50,7 @@
 	import Popup from './Popup.svelte';
 	const modal = writable(null);
 	const showModal = () => modal.set(Popup);
+	const hideModal = () => modal.set(null);
 </script>
 
 <div class="md:hidden">
@@ -128,13 +129,9 @@
 								<Table.Cell>{res.email}</Table.Cell>
 								<Table.Cell>{res.nic}</Table.Cell>
 								<Table.Cell
-									><button
-										><Modal show={$modal}>
-											<button on:click={showModal}>
-												<img src={Info} class="h-8 w-8" /></button
-											></Modal
-										></button
-									></Table.Cell
+									><Modal show={$modal} closeOnOuterClick={true} on:close={hideModal}>
+										<button on:click={showModal}> <img src={Info} class="h-8 w-8" /></button>
+									</Modal></Table.Cell
 								>
 								<!-- <Table.Cell class="text-right">{res.nic}</Table.Cell> -->
 							</Table.Row>
