@@ -3,7 +3,7 @@
 	import { page } from '$app/stores';
 
 	export let items: { href: string; title: string }[];
-	let className: string | undefined | null = undefined;
+	const className: string | undefined | null = undefined;
 	export { className as class };
 </script>
 
