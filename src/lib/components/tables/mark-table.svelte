@@ -46,11 +46,6 @@
 	];
 </script>
 
-<svelte:head>
-	<title>About</title>
-	<meta name="description" content="About this app" />
-</svelte:head>
-
 <!-- <div class="w-auto m-auto">
 	{#await get_table()}
 		<Alert.Root>
