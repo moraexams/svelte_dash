@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-	<title>Login | {WEBSITE_TITLE}</title>
+	<title>Sign Up | {WEBSITE_TITLE}</title>
 </svelte:head>
 
 <div
@@ -17,8 +17,15 @@
 	<div class="lg:p-8">
 		<div class="mx-auto flex w-full flex-col justify-center space-y-5 max-w-md items-center">
 			<div class="flex flex-col space-y-2 text-center">
-				<h1 class="text-2xl font-semibold tracking-tight">Login</h1>
-				<p class="text-sm text-muted-foreground">Enter your email below to login to your account</p>
+				<h1 class="text-2xl font-semibold tracking-tight">Sign Up</h1>
+				<p class="text-sm text-muted-foreground w-80">
+					After you sign up here, you have to be verified by web team of {WEBSITE_TITLE}
+				</p>
+			</div>
+
+			<div class="grid gap-2 w-full">
+				<Label for="name">Name</Label>
+				<Input id="text" type="name" placeholder="Harry Potter" required />
 			</div>
 
 			<div class="grid gap-2 w-full">
@@ -29,10 +36,14 @@
 				<Label for="password">Password</Label>
 				<Input id="password" type="password" required />
 			</div>
+			<div class="grid gap-2 w-full">
+				<Label for="confirm-password">Confirm Password</Label>
+				<Input id="confirm-password" type="password" required />
+			</div>
 			<div class="w-full text-center">
-				<Button class="w-full mb-2">Sign in</Button>
-				<a href="/sign-up">
-					<Button variant="link">Create Account</Button>
+				<Button class="w-full mb-2">Sign up</Button>
+				<a href="/login">
+					<Button variant="link">Already have an account?</Button>
 				</a>
 			</div>
 
