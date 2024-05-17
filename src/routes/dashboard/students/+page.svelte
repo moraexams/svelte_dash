@@ -5,6 +5,8 @@
 	import { Terminal } from 'lucide-svelte';
 	import * as Alert from '$lib/components/ui/alert';
 	import type { PageData } from './$types';
+	import { WEBSITE_TITLE } from '$lib/values';
+	import PageTitle from '$lib/components/page-title.svelte';
 
 	export let data: PageData;
 	// console.log(data);
@@ -42,9 +44,13 @@
 </script>
 
 <svelte:head>
-	<title>Students</title>
+	<title>Students | {WEBSITE_TITLE}</title>
 	<meta name="hello" content="All abouttttt" />
 </svelte:head>
+
+<PageTitle>
+	Students
+</PageTitle>
 
 <div class="w-auto m-auto">
 	{#await data.student_tbl.slice(0, 10)}

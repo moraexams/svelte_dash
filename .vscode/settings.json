@@ -7,7 +7,7 @@
 	"files.insertFinalNewline": true,
 	"prettier.proseWrap": "always",
 	"prettier.useTabs": true,
-	"editor.formatOnSaveMode": "modifications",
+	"editor.formatOnSaveMode": "file",
 	"[svelte]": {
 		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
