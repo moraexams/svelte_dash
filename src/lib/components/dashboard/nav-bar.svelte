@@ -15,7 +15,7 @@
 					title: 'Marks'
 				},
 				{
-					href: '/students',
+					href: './students',
 					title: 'Students'
 				},
 				{
