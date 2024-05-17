@@ -25,51 +25,23 @@
 	<title>Dashboard | {WEBSITE_TITLE}</title>
 </svelte:head>
 
-<div class="hidden flex-col md:flex">
-	<div class="border-b">
-		<div class="flex h-16 items-center px-4">
-			<!-- <TeamSwitcher /> -->
-			<DashboardMainNav
-				class="mx-6"
-				items={[
-					{
-						href: '/marks',
-						title: 'Marks'
-					},
-					{
-						href: '/students',
-						title: 'Students'
-					},
-					{
-						href: '/example/dashboard',
-						title: 'Example Dashboard'
-					}
-				]}
-			/>
-			<div class="ml-auto flex items-center space-x-4">
-				<DarkToggler />
-				<!-- <Search /> -->
-				<UserNav />
-			</div>
-		</div>
-	</div>
-	<div class="flex-1 space-y-4 p-8 pt-6">
-		<Card.Root class="max-w-sm">
-			<Card.Header class="flex flex-row items-center justify-between space-y-0 pb-2">
-				<Card.Title class="text-sm font-medium">Students</Card.Title>
-				<Users class="h-4 w-4 text-muted-foreground" />
-			</Card.Header>
-			<Card.Content>
-				<div class="text-2xl font-bold">{data.students.total}</div>
-				<p class="text-sm text-muted-foreground">
-					Verified percentage {data.students.verifiedPercentage}%
-				</p>
-			</Card.Content>
-		</Card.Root>
+<div class="flex-1 space-y-4 p-8 pt-6">
+	<Card.Root class="max-w-sm">
+		<Card.Header class="flex flex-row items-center justify-between space-y-0 pb-2">
+			<Card.Title class="text-sm font-medium">Students</Card.Title>
+			<Users class="h-4 w-4 text-muted-foreground" />
+		</Card.Header>
+		<Card.Content>
+			<div class="text-2xl font-bold">{data.students.total}</div>
+			<p class="text-sm text-muted-foreground">
+				Verified percentage {data.students.verifiedPercentage}%
+			</p>
+		</Card.Content>
+	</Card.Root>
 
-		<div class="flex items-center justify-between space-y-2">
-			<h2 class="text-3xl font-bold tracking-tight">Dashboard</h2>
-			<!-- <div class="flex items-center space-x-2">
+	<div class="flex items-center justify-between space-y-2">
+		<h2 class="text-3xl font-bold tracking-tight">Dashboard</h2>
+		<!-- <div class="flex items-center space-x-2">
 				<DarkToggler />
 				<UserNav />
 				<DatePickerWithRange />
@@ -78,20 +50,19 @@
 					Download
 				</Button>
 			</div> -->
-		</div>
-		<Tabs.Root value="overview" class="space-y-4">
-			<Tabs.List>
-				<Tabs.Trigger value="overview">Overview</Tabs.Trigger>
-				<Tabs.Trigger value="marks">Marks</Tabs.Trigger>
-				<Tabs.Trigger value="reports">Students</Tabs.Trigger>
-				<Tabs.Trigger value="notifications">Notifications</Tabs.Trigger>
-			</Tabs.List>
-			<Tabs.Content value="overview" class="space-y-4">
-				<DashOverview />
-			</Tabs.Content>
-			<Tabs.Content value="marks" class="space-y-4">
-				<MarkTable />
-			</Tabs.Content>
-		</Tabs.Root>
 	</div>
+	<Tabs.Root value="overview" class="space-y-4">
+		<Tabs.List>
+			<Tabs.Trigger value="overview">Overview</Tabs.Trigger>
+			<Tabs.Trigger value="marks">Marks</Tabs.Trigger>
+			<Tabs.Trigger value="reports">Students</Tabs.Trigger>
+			<Tabs.Trigger value="notifications">Notifications</Tabs.Trigger>
+		</Tabs.List>
+		<Tabs.Content value="overview" class="space-y-4">
+			<DashOverview />
+		</Tabs.Content>
+		<Tabs.Content value="marks" class="space-y-4">
+			<MarkTable />
+		</Tabs.Content>
+	</Tabs.Root>
 </div>
