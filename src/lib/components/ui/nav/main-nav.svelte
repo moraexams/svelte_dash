@@ -7,37 +7,16 @@
 	export { className as class };
 </script>
 
-<nav class={cn('flex items-center space-x-4 lg:space-x-6', className)}>
+<nav class={cn('flex items-center space-x-4 lg:space-x-3', className)}>
 	{#each items as item}
 		<a
 			href={item.href}
 			class={cn(
-				$page.url.pathname === item.href
-					? 'text-sm font-medium transition-colors hover:text-primary'
-					: 'text-sm font-medium transition-colors hover:text-primary',
-				'text-sm font-medium transition-colors hover:text-primary'
+				'text-sm font-medium transition-colors hover:underline hover:underline-offset-2 opacity-90',
+				$page.url.pathname === item.href ? 'font-bold underline underline-offset-2' : undefined
 			)}
 		>
 			{item.title}
 		</a>
 	{/each}
-
-	<!-- <a
-		href="/marks"
-		class="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-	>
-		Marks
-	</a>
-	<a
-		href="/students"
-		class="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-	>
-		Students
-	</a> -->
-	<!-- <a
-		href="/examples/dashboard"
-		class="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-	>
-		Students
-	</a> -->
 </nav>
