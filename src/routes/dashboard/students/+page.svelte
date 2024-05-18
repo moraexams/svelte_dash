@@ -41,6 +41,18 @@
 		'check by',
 		'check date'
 	];
+
+	function formatValueDisplay(value: string | number | boolean | Date | null | unknown) {
+		if (value === 'female' || value === 'male')
+			return value.charAt(0).toUpperCase().concat(value.slice(1));
+
+		switch (typeof value) {
+			case 'boolean':
+				return value ? 'YES' : 'NO';
+			default:
+				return value;
+		}
+	}
 </script>
 
 <svelte:head>
@@ -48,9 +60,7 @@
 	<meta name="hello" content="All abouttttt" />
 </svelte:head>
 
-<PageTitle>
-	Students
-</PageTitle>
+<PageTitle>Students</PageTitle>
 
 <div class="w-auto m-auto">
 	{#await data.student_tbl.slice(0, 10)}
@@ -61,10 +71,8 @@
 		</Alert.Root>
 	{:then result}
 		<Table.Root class="w-auto m-auto">
-			<!-- <Table.Caption>A list of your recent invoices.</Table.Caption> -->
 			<Table.Header>
 				<Table.Row>
-					<!-- <Table.Head class="w-[100px]">Index No</Table.Head> -->
 					{#each headers as header}
 						<Table.Head>{header}</Table.Head>
 					{/each}
@@ -73,9 +81,9 @@
 			<Table.Body>
 				{#each result as res}
 					<Table.Row>
-						{#each Object.entries(res) as [key, value]}
+						{#each Object.values(res) as value}
 							<Table.Cell>
-								{key === 'checked' ? (value ? 'YES' : 'NO') : value}
+								{formatValueDisplay(value)}
 							</Table.Cell>
 						{/each}
 					</Table.Row>
