@@ -23,13 +23,8 @@
 	const headers = [
 		'Index No',
 		'Name',
-		'SGID',
-		'Medium',
-		'DRID',
-		/* 'Ranking D', */
-		'DSID',
-		'CID',
 		'NIC',
+		'SGID',
 		'Gender',
 		'School',
 		'Address',
@@ -63,7 +58,7 @@
 <PageTitle>Students</PageTitle>
 
 <div class="w-auto m-auto">
-	{#await data.student_tbl.slice(0, 10)}
+	{#await data.students}
 		<Alert.Root>
 			<Terminal class="h-4 w-4" />
 			<Alert.Title>Calculating...</Alert.Title>

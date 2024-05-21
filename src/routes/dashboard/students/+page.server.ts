@@ -3,7 +3,21 @@ import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {
 	return {
-		student_tbl: await db.query.student_tbl.findMany({
+		students: await db.query.students_tbl.findMany({
+			columns: {
+				id: true,
+				name: true,
+				nic: true,
+				stream_id: true,
+				gender: true,
+				school: true,
+				address: true,
+				email: true,
+				telephone: true,
+				checked: true,
+				by: true,
+				dt: true
+			},
 			limit: 10
 		})
 	};
