@@ -17,7 +17,7 @@
 	import { WEBSITE_TITLE } from '$lib/values';
 	import PageTitle from '$lib/components/page-title.svelte';
 
-	/** @type {import("./$types").PageServerLoad}*/
+	/** @type {import("./$types").PageLoad}*/
 	export let data;
 </script>
 
@@ -33,7 +33,7 @@
 	<Card.Content>
 		<div class="text-2xl font-bold">{data.students.total}</div>
 		<p class="text-sm text-muted-foreground">
-			Verified percentage {data.students.verifiedPercentage}%
+			Verified percentage {data.students.checkedPercentage}%
 		</p>
 	</Card.Content>
 </Card.Root>
